@@ -1,2 +1,1 @@
-
-console.log('Index');
+import './styles/main.css'
