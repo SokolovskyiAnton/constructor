@@ -1,3 +1,4 @@
+// создание функций для шаблонов
 import {row, col} from './utils.js' // импорт функций отвечающий за создание row и col-sm
 
 function title(block) {
