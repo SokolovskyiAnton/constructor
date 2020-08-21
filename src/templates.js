@@ -1,31 +1,21 @@
+import {row, col} from './utils.js' // импорт функций отвечающий за создание row и col-sm
+
 function title(block) {
-    return `
-    <div class="row">
-        <div class="col-sm">
-            <h1>${block.value}</h1>
-        </div>
-    </div>
-    `
+    const tag = block.options.tag
+    const styles = block.options.styles
+    return row(col(`<${tag}>${block.value}</${tag}>`), styles)
 }
 
 function text(block) {
-    return `
-    <div class="row">
-        <div class="col-sm">
-            <p>${block.value}</p>
-        </div>
-    </div>
-    `
+    const styles = block.options.styles
+    return row(col(`<p>${block.value}</p>`), styles)
 }
 
 function textColumns(block) {
-    const html = block.value.map( item => `<div class="col-sm">${item}</div>`)
+    const styles = block.options.styles
+    const html = block.value.map( item => col(item))
 
-    return `
-    <div class="row">
-        ${html.join('')}
-    </div>
-    `
+    return row(html.join(''), styles)
 }
 
 
